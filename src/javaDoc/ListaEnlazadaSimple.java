@@ -12,7 +12,7 @@ public class ListaEnlazadaSimple {
 	 * @author: Víctor Sánchez Martín
 	 * @version: 19/02/2019/
 	 * @see Visitar <a href = "https://github.com/victorvictorvk/javadoc" />Enlace al repositorio en Github</a>
-	 * 
+	 *  
 	 */
 		/**
 		 * Variable de tipo Nodo que en un principio apunta a null 
