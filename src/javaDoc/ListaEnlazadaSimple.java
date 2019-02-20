@@ -45,7 +45,7 @@ public class ListaEnlazadaSimple {
 		
 		/**
 		 * Método que imprime en pantalla todo el contenido de la lista enlazada.
-		 * @exception Esta excepción se lanza cuando intentamos imprimir por pantalla la lista pero está vacía.
+		 * @exception ErrorVacia Esta excepción se lanza cuando intentamos imprimir por pantalla la lista pero está vacía.
 		 */
 		public void verLista()
 		{
