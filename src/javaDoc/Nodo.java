@@ -1,18 +1,20 @@
 package javaDoc;
-
+/**
+ * Clase que contiene los atributos necesarios para construir un objeto de tipo Nodo
+ * @author: Victor Sanchez Martin
+ * @version: 19/02/2019/
+ * @see Visitar <a href = "https://github.com/victorvictorvk/javadoc" />Enlace al repositorio en Github</a>
+ *
+ */
 public class Nodo {
-	/**
-	 * @author: Víctor Sánchez Martín
-	 * @version: 19/02/2019/
-	 * @see <a href = "http://www.aprenderaprogramar.com" /> aprenderaprogramar.com – Didáctica en programación </a>
-	 */
+
 	
 	Object info;
 	Nodo enlace;
 	
 	/**
 	 * Constructor para crear un objeto de tipo Nodo
-	 * @param info, este campo contiene el objeto que formará parte de la lista
+	 * @param info, este campo contiene el objeto que formara parte de la lista
 	 * @param enlace, es una referencia al Nodo siguiente.
 	 */
 	public Nodo(Object info, Nodo enlace)

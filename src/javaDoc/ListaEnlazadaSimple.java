@@ -1,26 +1,27 @@
 package javaDoc;
-
+/**
+ * Una lista enlazada simple es una coleccion de nodos enlazados.
+ * Cada nodo tendra como minimo dos atributos: informacion y enlace.
+ * Informacion sera la referencia del objeto que queremos almacenar.
+ * Enlace: es la refrencia de otro nodo.
+ * Siempre tendremos una referencia llamada inicio que apunte al primer nodo de la lista.
+ * El campo enlace del ultimo nodo tiene que valer null.
+ * 
+ * @author: Victor Sanchez Martin
+ * @version: 19/02/2019/
+ * @see Visitar <a href = "https://github.com/victorvictorvk/javadoc" />Enlace al repositorio en Github</a>
+ *  
+ */
 public class ListaEnlazadaSimple {
-	/**
-	 * una lista enlazada simple es una coleccion de nodos enlazados.
-	 * Cada nodo tendrá como mínimo dos atributos: informacion y enlace.
-	 * Información será la referencia del objeto que queremos almacenar.
-	 * Enlace: es la refrencia de otro nodo.
-	 * Siempre tendremos una referencia llamada inicio que apunte al primer nodo de la lista.
-	 * El campo enlace del último nodo tiene que valer null.
-	 * 
-	 * @author: Víctor Sánchez Martín
-	 * @version: 19/02/2019/
-	 * @see Visitar <a href = "https://github.com/victorvictorvk/javadoc" />Enlace al repositorio en Github</a>
-	 *  
-	 */
+
+	
 		/**
 		 * Variable de tipo Nodo que en un principio apunta a null 
-		 * y que irá apuntando a los Nodos que vayamos insertando en la lista.
+		 * y que ira apuntando a los Nodos que vayamos insertando en la lista.
 		 */
 		Nodo inicio;//inicio es de tipo NODO
 		/**
-		 * Constructor por defecto que no recibe ningún parámetro, en el cual la variable
+		 * Constructor por defecto que no recibe ningun parametro, en el cual la variable
 		 * inicio apunta a null.
 		 */
 		
@@ -30,29 +31,30 @@ public class ListaEnlazadaSimple {
 		}
 		
 		/**
-		 * Este método recibe un objeto de tipo Object y lo inserta al principio de la lista enlazada.
-		 * @param obj: es el objeto genérico que recibe el método y que se inserta al comienzo.
+		 * Este metodo recibe un objeto de tipo Object y lo inserta al principio de la lista enlazada.
+		 * @param obj: es el objeto generico que recibe el metodo y que se inserta al comienzo.
 		 */
 		
 		public void insertarPrincipio(Object obj)
 		{
 			//Creamos un nuevo nodo que se insertara al ppio.
 			Nodo nuevo = new Nodo( obj, inicio);
-			//Inicio pasa a referenciar al nuevo nodo. eL nuevo nodo se insertará al principio.
+			//Inicio pasa a referenciar al nuevo nodo. eL nuevo nodo se insertara al principio.
 			inicio = nuevo;
 		}
 		
 		
 		/**
-		 * Método que imprime en pantalla todo el contenido de la lista enlazada.
-		 * @exception ErrorVacia Esta excepción se lanza cuando intentamos imprimir por pantalla la lista pero está vacía.
+		 * Metodo que imprime en pantalla todo el contenido de la lista enlazada.
+		 * @exception ErrorVacia Esta excepcion se lanza cuando intentamos imprimir por pantalla la lista pero esta vacia.
 		 */
 		public void verLista()
 		{
-			try {
+			
 				if(listaVacia())
 				{
-					throw new ErrorVacia();
+					System.err.println("Error: No se puede mostrar la lista porque esta vacia");
+
 				}
 				
 				//tengo que recorrer la lista con un while
@@ -64,62 +66,57 @@ public class ListaEnlazadaSimple {
 					//avanzamos al siguiente nodo
 					actual = actual.enlace;
 				}
-			}catch(ErrorVacia error)
-			{
-				System.out.println(error.getMessage());
-
-				System.err.println("Error: No se puede mostrar la lista porque está vacía");
-			}
+		
 			
 		}
 		
 		/**
-		 * Método que inserta un nodo al final de la lista.
-		 * @param obj: objecto que se le pasa al método como parámetro y que se añade al final.
+		 * Metodo que inserta un nodo al final de la lista.
+		 * @param obj: objecto que se le pasa al metodo como parametro y que se añade al final.
 		 */
 		public void insertarAlFinal(Object obj)
 		{
-			//creamos un nuevo nodo donde en enlace que tenga será null por ser el final de la lista
+			//creamos un nuevo nodo donde en enlace que tenga sera null por ser el final de la lista
 			Nodo nuevo = new Nodo (obj, null);
 			if(listaVacia())
 			{
 				inicio = nuevo; //esto hace lo mismo que insertar al ppio
 				
-			}else //Tendremos que conseguir llegar al último NODO. para ello hacemos un recorrido desde el ppio hasta el último nodo(porque de primeras 
-				//no sé dónde nos encontramos
+			}else //Tendremos que conseguir llegar al ultimo NODO. para ello hacemos un recorrido desde el ppio hasta el ultimo nodo(porque de primeras 
+				//no se donde nos encontramos
 			{
-				Nodo actual = inicio; //me creo una variable nueva de tipo nodo a la que le asigno la primera posición de la lista.
+				Nodo actual = inicio; //me creo una variable nueva de tipo nodo a la que le asigno la primera posicion de la lista.
 				while( actual.enlace != null) {//si esto es cierto avanzo al siguiente nodo
-					actual = actual.enlace;//este será el ultimo de la lista que yo tenía
+					actual = actual.enlace;//este sera el ultimo de la lista que yo tenia
 				}
-				//Enlazamos el ultimo nodo que estaba en la lista con el que yo le he pasado que se convertirá en el último
+				//Enlazamos el ultimo nodo que estaba en la lista con el que yo le he pasado que se convertira en el ultimo
 				actual.enlace = nuevo;
 			}
 			
 		}
 		/**
-		 * Método que nos indica si la lista está vacía.
+		 * Metodo que nos indica si la lista esta vacia.
 		 *	@return <ul>
-	     *          <li>true: si la lista está vacía.</li>
+	     *          <li>true: si la lista esta vacia.</li>
 	     *          <li>false: si la lista contiene al menos un elemento.</li>
 	     *          </ul>
 		 */
 		public boolean listaVacia()
 		{
-			return inicio == null; //es como el contructor vacío
+			return inicio == null; //es como el contructor vacio
 		}
 		
 		/**
-		 * Este método busca el elemento a eliminar y lo elimina enlazando el nodo anterior con el siguiente.
+		 * Este metodo busca el elemento a eliminar y lo elimina enlazando el nodo anterior con el siguiente.
 		 * Para ello creamos una varibale anterior que apunta a null porque de primeras no apunta a nada.
-		 * @param obj: es el objeto que se eliminará de la lista.
+		 * @param obj: es el objeto que se eliminara de la lista.
 		 */
 		public void eliminar( Object obj)
 		{
 		
 			//variables
 			Nodo anterior =  null; //este nodo anterior lo inicializo a null porque al principio de recorrer la lista no existe
-			Nodo actual = inicio;// lo inicializo a inicio para que se sitúe en el primer elemento de la lista
+			Nodo actual = inicio;// lo inicializo a inicio para que se situe en el primer elemento de la lista
 			boolean encontrado =  false;
 			while( actual != null && !encontrado)//mientras el Nodo actual(que es el que itera) sea distinto de null(porque null
 												//es cuando llega al final de la lista) y No se haya enconrtrado, avanzamos.
@@ -141,22 +138,10 @@ public class ListaEnlazadaSimple {
 				}else
 				anterior.enlace = actual.enlace;//Enlazamos el nodo anterior con el siguiente
 			}
-				System.out.println("Éste objeto no existe en la lista!.");
+				System.out.println("Este objeto no existe en la lista!.");
 			}
 		}
 
-		/**
-		 * Esta clase extiene a la clase superior Exception y sirve para 
-		 * crear nuestra propia excepción particular cuando la lista está vacía.
-		 */
-	class ErrorVacia extends Exception
-	{
-		/**
-		 * Constructor que llama a los métodos de la clase superior Exception.
-		 */
-		public ErrorVacia() 
-		{
-			super();
-		}
-	}
+
+
 
